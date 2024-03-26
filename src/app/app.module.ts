@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
-import { AppComponent } from "./app.component";
-import { CalculatorComponent } from "./calculator/calculator.component";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MyCalculatorModule } from './calculator/my-calculator.module';
+import { MyEmptyPage } from './components/empty-route/empty-route.component';
+import { MyNavigation } from './components/navigation/navigation.component';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CalculatorComponent,
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        FormsModule,
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent, MyNavigation, MyEmptyPage],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MyCalculatorModule,
+    DirectivesModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-
 export class AppModule {}
