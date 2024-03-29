@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MyChangeColorDirectiveDirective } from './directive/my-change-color-directive.directive';
 
 @Component({
   selector: 'app-directives',

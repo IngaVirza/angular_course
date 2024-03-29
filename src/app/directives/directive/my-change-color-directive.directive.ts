@@ -1,18 +1,28 @@
-import { Directive, ElementRef } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[myChangeColor]',
-  // standalone: true
+  selector: '[myChangeColor]'
 })
-export class MyChangeColorDirectiveDirective {
-  colors = ['red', 'green', 'blue'];
+export class MyChangeColorDirectiveDirective implements AfterViewInit {
+
+  @Input('myChangeColor') colors?: string[]
+
+  private _el: ElementRef;
+
   constructor(el: ElementRef) {
-    this.changeColor(el);
+    this._el = el;
+  }
+
+  ngAfterViewInit(): void {
+    this.changeColor(this._el)
   }
 
   private changeColor(el: ElementRef) {
-    setInterval(()=> {
-      el.nativeElement.style.color = this.colors[Math.floor(Math.random() * this.colors.length)]
-    }, 2000)
+    if (this.colors && this.colors.length !== 0) {
+      setInterval(() => {
+        el.nativeElement.style.color = this.colors![Math.floor(Math.random() * this.colors!.length)]
+      }, 2000)
+    }
   }
+
 }

@@ -10,15 +10,22 @@ exports.MyChangeColorDirectiveDirective = void 0;
 var core_1 = require("@angular/core");
 var MyChangeColorDirectiveDirective = /** @class */ (function () {
     function MyChangeColorDirectiveDirective(el) {
-        this.colors = ['red', 'green', 'blue'];
-        this.changeColor(el);
+        this._el = el;
     }
+    MyChangeColorDirectiveDirective.prototype.ngAfterViewInit = function () {
+        this.changeColor(this._el);
+    };
     MyChangeColorDirectiveDirective.prototype.changeColor = function (el) {
         var _this = this;
-        setInterval(function () {
-            el.nativeElement.style.color = _this.colors[Math.floor(Math.random() * _this.colors.length)];
-        }, 2000);
+        if (this.colors && this.colors.length !== 0) {
+            setInterval(function () {
+                el.nativeElement.style.color = _this.colors[Math.floor(Math.random() * _this.colors.length)];
+            }, 2000);
+        }
     };
+    __decorate([
+        core_1.Input('myChangeColor')
+    ], MyChangeColorDirectiveDirective.prototype, "colors");
     MyChangeColorDirectiveDirective = __decorate([
         core_1.Directive({
             selector: '[myChangeColor]'

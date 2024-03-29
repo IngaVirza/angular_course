@@ -28,6 +28,12 @@ var routes = [
         }
     },
     {
+        path: 'life-cycle',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./lifecycle/components/life-cycle.module'); }).then(function (m) { return m.LifeCycleModule; });
+        }
+    },
+    {
         path: '**',
         component: empty_route_component_1.MyEmptyPage
     },

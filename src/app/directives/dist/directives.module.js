@@ -12,12 +12,13 @@ var core_1 = require("@angular/core");
 var my_change_color_directive_directive_1 = require("./directive/my-change-color-directive.directive");
 var directives_routings_module_1 = require("./directives-routings.module");
 var directives_component_1 = require("./directives.component");
+var my_if_directive_directive_1 = require("./directive/my-if-directive.directive");
 var DirectivesModule = /** @class */ (function () {
     function DirectivesModule() {
     }
     DirectivesModule = __decorate([
         core_1.NgModule({
-            declarations: [directives_component_1.DirectivesPageComponent, my_change_color_directive_directive_1.MyChangeColorDirectiveDirective],
+            declarations: [directives_component_1.DirectivesPageComponent, my_change_color_directive_directive_1.MyChangeColorDirectiveDirective, my_if_directive_directive_1.MyIfDirectiveDirective],
             imports: [common_1.CommonModule, directives_routings_module_1.DirectivesRouting],
             exports: []
         })
