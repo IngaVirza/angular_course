@@ -7,6 +7,7 @@ import { MyCalculatorModule } from './calculator/my-calculator.module';
 import { MyEmptyPage } from './components/empty-route/empty-route.component';
 import { MyNavigation } from './components/navigation/navigation.component';
 import { DirectivesModule } from './directives/directives.module';
+import { RequestModule } from './requests/request-module.module';
 
 @NgModule({
   declarations: [AppComponent, MyNavigation, MyEmptyPage],

@@ -19,6 +19,10 @@ const routes: Routes = [
       import('./directives/directives.module').then((m) => m.DirectivesModule),
   },
   {
+    path: 'requests',
+    loadChildren: () => import('./requests/request-module.module').then((m) => m.RequestModule)
+  },
+  {
     path: 'life-cycle',
     loadChildren: () =>
       import('./lifecycle/components/life-cycle.module').then(
