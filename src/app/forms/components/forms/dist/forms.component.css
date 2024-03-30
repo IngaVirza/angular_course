@@ -1,0 +1,15 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 40vw;
+}
+.login-form div {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+.login-form div label {
+  width: 80px;
+}

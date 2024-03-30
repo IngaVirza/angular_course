@@ -36,6 +36,11 @@ const routes: Routes = [
       import('./pipes/pipes.module').then((m) => m.PipeModule),
   },
   {
+    path: 'forms',
+    loadChildren: () =>
+      import('./forms/forms.module').then((m) => m.FormsUIModule),
+  },
+  {
     path: '**',
     component: MyEmptyPage,
   },

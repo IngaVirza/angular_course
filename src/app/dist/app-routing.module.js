@@ -46,6 +46,12 @@ var routes = [
         }
     },
     {
+        path: 'forms',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./forms/forms.module'); }).then(function (m) { return m.FormsUIModule; });
+        }
+    },
+    {
         path: '**',
         component: empty_route_component_1.MyEmptyPage
     },
