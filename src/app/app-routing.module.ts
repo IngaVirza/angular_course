@@ -20,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'requests',
-    loadChildren: () => import('./requests/request-module.module').then((m) => m.RequestModule)
+    loadChildren: () =>
+      import('./requests/request-module.module').then((m) => m.RequestModule),
   },
   {
     path: 'life-cycle',
@@ -28,6 +29,11 @@ const routes: Routes = [
       import('./lifecycle/components/life-cycle.module').then(
         (m) => m.LifeCycleModule
       ),
+  },
+  {
+    path: 'pipes',
+    loadChildren: () =>
+      import('./pipes/pipes.module').then((m) => m.PipeModule),
   },
   {
     path: '**',

@@ -29,12 +29,20 @@ var routes = [
     },
     {
         path: 'requests',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./requests/request-module.module'); }).then(function (m) { return m.RequestModule; }); }
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./requests/request-module.module'); }).then(function (m) { return m.RequestModule; });
+        }
     },
     {
         path: 'life-cycle',
         loadChildren: function () {
             return Promise.resolve().then(function () { return require('./lifecycle/components/life-cycle.module'); }).then(function (m) { return m.LifeCycleModule; });
+        }
+    },
+    {
+        path: 'pipes',
+        loadChildren: function () {
+            return Promise.resolve().then(function () { return require('./pipes/pipes.module'); }).then(function (m) { return m.PipeModule; });
         }
     },
     {
