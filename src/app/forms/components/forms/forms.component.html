@@ -23,3 +23,27 @@
     </div>
     <button (click)='handleValue()' [disabled]="!myForm.valid">Send value</button>
 </div> 
+
+<div class="login-form" [formGroup]="validatorsForm">
+    <h2>Custom validators</h2>
+        <div>
+            <label for="mail">Mail</label>
+            <input type="text" id="mail" formControlName="mail"/>   
+            @if(!validatorsForm.controls.mail.valid && validatorsForm.controls.mail.touched){
+            <small style="color:red">Неправильно введены данные</small>
+        }
+    </div>
+    <div>
+        <label for="password_one">Введите пароль</label>
+        <input type="password" id="password_one" formControlName="password_one" />
+    </div>
+    <div>
+        <label for="password_two">Введите пороль еще раз</label>
+        <input type="password" id="password_two" formControlName="password_two" />
+    </div>
+    @if (validatorsForm.errors?.['PasswordDoNotMatch']) {
+        <div>
+            <span style="color: red">Пароли не совподают</span>
+        </div>
+    }
+</div>

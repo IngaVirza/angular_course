@@ -6,9 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.FormsComponent = void 0;
+exports.FormsComponent = exports.conformPassword = exports.checkRegExp = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+function checkRegExp(regExp) {
+    return function (control) {
+        var forbidden = regExp.test(control.value);
+        return !forbidden ? { forbiddenValue: { value: control.value } } : null;
+    };
+}
+exports.checkRegExp = checkRegExp;
+exports.conformPassword = function (control) {
+    return control.value.password_one === control.value.password_two
+        ? null
+        : { PasswordDoNotMatch: true };
+};
 var FormsComponent = /** @class */ (function () {
     function FormsComponent() {
         this.myForm = new forms_1.FormGroup({
@@ -16,6 +28,11 @@ var FormsComponent = /** @class */ (function () {
             email: new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]),
             password: new forms_1.FormControl('', forms_1.Validators.required)
         });
+        this.validatorsForm = new forms_1.FormGroup({
+            mail: new forms_1.FormControl('', checkRegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)),
+            password_one: new forms_1.FormControl(''),
+            password_two: new forms_1.FormControl('')
+        }, exports.conformPassword);
     }
     FormsComponent.prototype.ngOnInit = function () { };
     FormsComponent.prototype.handleValue = function () {
