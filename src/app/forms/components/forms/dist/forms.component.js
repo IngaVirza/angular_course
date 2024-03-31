@@ -22,7 +22,8 @@ exports.conformPassword = function (control) {
         : { PasswordDoNotMatch: true };
 };
 var FormsComponent = /** @class */ (function () {
-    function FormsComponent() {
+    function FormsComponent(_fb) {
+        this._fb = _fb;
         this.myForm = new forms_1.FormGroup({
             login: new forms_1.FormControl('', forms_1.Validators.required),
             email: new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]),
@@ -33,7 +34,18 @@ var FormsComponent = /** @class */ (function () {
             password_one: new forms_1.FormControl(''),
             password_two: new forms_1.FormControl('')
         }, exports.conformPassword);
+        this.fbForm = this._fb.group({
+            name: ['Inga'],
+            skills: this._fb.array([])
+        });
     }
+    Object.defineProperty(FormsComponent.prototype, "skills", {
+        get: function () {
+            return this.fbForm.get('skills');
+        },
+        enumerable: false,
+        configurable: true
+    });
     FormsComponent.prototype.ngOnInit = function () { };
     FormsComponent.prototype.handleValue = function () {
         if (this.myForm.valid) {
@@ -42,6 +54,21 @@ var FormsComponent = /** @class */ (function () {
         else {
             alert('Форма не валидна');
         }
+    };
+    FormsComponent.prototype.newSkill = function () {
+        return this._fb.group({
+            skill: '',
+            expirience: ''
+        });
+    };
+    FormsComponent.prototype.addSkill = function () {
+        this.skills.push(this.newSkill());
+    };
+    FormsComponent.prototype.removeSkill = function (i) {
+        this.skills.removeAt(i);
+    };
+    FormsComponent.prototype.onSubmit = function () {
+        console.log(this.fbForm.value);
     };
     FormsComponent = __decorate([
         core_1.Component({
