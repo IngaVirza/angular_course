@@ -24,6 +24,11 @@ exports.conformPassword = function (control) {
 var FormsComponent = /** @class */ (function () {
     function FormsComponent(_fb) {
         this._fb = _fb;
+        this.templateForm = {
+            login: '',
+            email: 'inha.virza@gmail.com',
+            password: ''
+        };
         this.myForm = new forms_1.FormGroup({
             login: new forms_1.FormControl('', forms_1.Validators.required),
             email: new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]),

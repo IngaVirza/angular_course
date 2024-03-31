@@ -25,12 +25,24 @@ export const conformPassword: ValidatorFn = (
     : { PasswordDoNotMatch: true };
 };
 
+interface TemplateFormI {
+  login: string;
+  email: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent implements OnInit {
+  public templateForm: TemplateFormI = {
+    login: '',
+    email: 'inha.virza@gmail.com',
+    password: '',
+  };
+
   constructor(private _fb: FormBuilder) {}
 
   public get skills(): FormArray {
@@ -86,6 +98,6 @@ export class FormsComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.fbForm.value)
+    console.log(this.fbForm.value);
   }
 }

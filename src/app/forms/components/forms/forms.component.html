@@ -70,4 +70,28 @@
   
     <div><button (click)="addSkill()">Add skill</button></div>
     <button type="submit">Submit</button>
+
   </form>
+
+
+  <div class="login-form">
+    <h2>Template-Driven Forms</h2>
+
+    <pre>{{ templateForm | json }}</pre>
+
+    <div>
+        <label for="templateLogin">Login</label>
+        <input id="templateLogin" [(ngModel)]="templateForm.login" type="text"/>
+    </div>
+
+    <div>
+        <label for="templateEmail">Email</label>
+        <input id="templateEmail" [(ngModel)]="templateForm.email" type="text"/>
+    </div>
+
+    <div>
+        <label for="templatePassword">Password</label>
+        <input id="templatePassword" [(ngModel)]="templateForm.password" type="text"/>
+    </div>
+
+</div>
