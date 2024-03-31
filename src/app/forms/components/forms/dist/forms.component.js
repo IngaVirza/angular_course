@@ -25,8 +25,8 @@ var FormsComponent = /** @class */ (function () {
     function FormsComponent(_fb) {
         this._fb = _fb;
         this.templateForm = {
-            login: '',
-            email: 'inha.virza@gmail.com',
+            login: 'Borya',
+            email: '',
             password: ''
         };
         this.myForm = new forms_1.FormGroup({
@@ -43,6 +43,13 @@ var FormsComponent = /** @class */ (function () {
             name: ['Inga'],
             skills: this._fb.array([])
         });
+        this.customForm = this._fb.group({
+            rate: [4, [forms_1.Validators.required]]
+        });
+        this.ratesOptions = {
+            rates: 10,
+            text: 'Оцените наш курс по Angular'
+        };
     }
     Object.defineProperty(FormsComponent.prototype, "skills", {
         get: function () {

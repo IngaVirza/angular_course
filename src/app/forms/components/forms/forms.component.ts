@@ -9,8 +9,9 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { RateOptions } from '../rate/rate.component';
 
-export function checkRegExp(regExp: RegExp): Validators {
+export function checkRegExp(regExp: RegExp): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const forbidden = regExp.test(control.value);
     return !forbidden ? { forbiddenValue: { value: control.value } } : null;
@@ -38,8 +39,8 @@ interface TemplateFormI {
 })
 export class FormsComponent implements OnInit {
   public templateForm: TemplateFormI = {
-    login: '',
-    email: 'inha.virza@gmail.com',
+    login: 'Borya',
+    email: '',
     password: '',
   };
 
@@ -72,7 +73,16 @@ export class FormsComponent implements OnInit {
     skills: this._fb.array([]),
   });
 
-  public ngOnInit() {}
+  public customForm = this._fb.group({
+    rate: [4, [Validators.required]],
+  });
+
+  public ratesOptions: RateOptions = {
+    rates: 10,
+    text: 'Оцените наш курс по Angular',
+  };
+
+  public ngOnInit(): void {}
 
   public handleValue() {
     if (this.myForm.valid) {

@@ -12,15 +12,13 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var forms_component_1 = require("./components/forms/forms.component");
 var forms_routing_module_1 = require("./forms-routing.module");
-// import { RateComponent } from './components/rate/rate.component';
+var rate_component_1 = require("./components/rate/rate.component");
 var FormsUIModule = /** @class */ (function () {
     function FormsUIModule() {
     }
     FormsUIModule = __decorate([
         core_1.NgModule({
-            declarations: [
-                forms_component_1.FormsComponent,
-            ],
+            declarations: [forms_component_1.FormsComponent, rate_component_1.RateComponent],
             imports: [common_1.CommonModule, forms_routing_module_1.FormsRouting, forms_1.ReactiveFormsModule, forms_1.FormsModule]
         })
     ], FormsUIModule);
