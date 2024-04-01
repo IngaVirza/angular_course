@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-// import { ChildDecoratorComponent } from '../child-decorator/child-decorator.component';
+import { ChildDecoratorComponent } from '../child-decorator/child-decorator.component';
 
 @Component({
   selector: 'app-decorators-page',
@@ -23,14 +23,14 @@ export class DecoratorsPageComponent implements AfterViewInit {
   paragraph?: ElementRef<HTMLParagraphElement>;
   @ViewChild('paragraphTemplate')
   paragraphTemplate?: TemplateRef<HTMLParagraphElement>;
-  // @ViewChild(ChildDecoratorComponent) childComponent?: ChildDecoratorComponent;
+  @ViewChild(ChildDecoratorComponent) childComponent?: ChildDecoratorComponent;
 
-  // @ViewChildren(ChildDecoratorComponent) childComponents?: QueryList<ChildDecoratorComponent>;
+  @ViewChildren(ChildDecoratorComponent) childComponents?: QueryList<ChildDecoratorComponent>;
 
   public ngAfterViewInit(): void {
-    // console.log(this.paragraph);
-    // console.log(this.paragraphTemplate);
-    // console.log(this.childComponent);
-    // console.log(this.childComponents)
+    console.log(this.paragraph);
+    console.log(this.paragraphTemplate);
+    console.log(this.childComponent);
+    console.log(this.childComponents)
   }
 }

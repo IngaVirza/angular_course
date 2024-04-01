@@ -8,19 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.DecoratorsPageComponent = void 0;
 var core_1 = require("@angular/core");
-// import { ChildDecoratorComponent } from '../child-decorator/child-decorator.component';
+var child_decorator_component_1 = require("../child-decorator/child-decorator.component");
 var DecoratorsPageComponent = /** @class */ (function () {
     function DecoratorsPageComponent() {
         this.arr = [1, 2, 3, 4, 5];
         this.isShow = true;
     }
-    // @ViewChild(ChildDecoratorComponent) childComponent?: ChildDecoratorComponent;
-    // @ViewChildren(ChildDecoratorComponent) childComponents?: QueryList<ChildDecoratorComponent>;
     DecoratorsPageComponent.prototype.ngAfterViewInit = function () {
-        // console.log(this.paragraph);
-        // console.log(this.paragraphTemplate);
-        // console.log(this.childComponent);
-        // console.log(this.childComponents)
+        console.log(this.paragraph);
+        console.log(this.paragraphTemplate);
+        console.log(this.childComponent);
+        console.log(this.childComponents);
     };
     __decorate([
         core_1.ViewChild('paragraph, sddf', { read: '' })
@@ -28,6 +26,12 @@ var DecoratorsPageComponent = /** @class */ (function () {
     __decorate([
         core_1.ViewChild('paragraphTemplate')
     ], DecoratorsPageComponent.prototype, "paragraphTemplate");
+    __decorate([
+        core_1.ViewChild(child_decorator_component_1.ChildDecoratorComponent)
+    ], DecoratorsPageComponent.prototype, "childComponent");
+    __decorate([
+        core_1.ViewChildren(child_decorator_component_1.ChildDecoratorComponent)
+    ], DecoratorsPageComponent.prototype, "childComponents");
     DecoratorsPageComponent = __decorate([
         core_1.Component({
             selector: 'app-decorators-page',

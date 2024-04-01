@@ -11,7 +11,7 @@ var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var decorators_page_component_1 = require("./components/decorators-page/decorators-page.component");
 var decorators_routing_module_1 = require("./decorators-routing.module");
-// import { ChildDecoratorComponent } from './components/child-decorator/child-decorator.component';
+var child_decorator_component_1 = require("./components/child-decorator/child-decorator.component");
 var DecoratorsModule = /** @class */ (function () {
     function DecoratorsModule() {
     }
@@ -19,6 +19,7 @@ var DecoratorsModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 decorators_page_component_1.DecoratorsPageComponent,
+                child_decorator_component_1.ChildDecoratorComponent
             ],
             imports: [common_1.CommonModule, decorators_routing_module_1.DecoratorsRouting]
         })
